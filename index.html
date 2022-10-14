@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teapot</title>
+    <link rel="icon" href="img/teapot.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="panel-left">
+            <div class="info-wrapper">
+                <h1 class="title">&#x1FAD6;<span class="responsive-break"><br></span>Teapot studio</h1>
+                <p class="site-description">Thank you for visiting! There isn't much here for now, but you can enjoy your today's daily portion of art from the Art Institute of Chicago.</p>
+                <p class="site-description">To avoid flooding the API with requests, you can only request a new artwork every <span class="reload-limit-info"></span> seconds. That appplies to the refresh button next to an artwork, as well as refreshing the whole page.</p>
+            </div>  
+            <div class="clock-wrapper">
+                <p class="clock">00:00:00</p>
+            </div>
+        </div>
+        <div class="panel-right">
+            <figure class="right-wrapper">
+                <button class="artwork-reload" onclick="reloadArtwork()">&#8635;</button>
+                <img class="artwork-img" src="" alt="Talking to the API to get you your daily dose of art!">
+                <figcaption class="artwork-title"></figcaption>
+                <figcaption class="artwork-author"></figcaption>
+                <figcaption class="artwork-date"></figcaption>
+                <figcaption class="artwork-origin">Remember that you can only request a new artwork every <span class="reload-limit-info">xx</span> seconds.</figcaption>
+                <figcaption class="credits">Provided by the <a href="https://api.artic.edu/docs/" target="_blank">Art Institute of Chicago API</a></figcaption>
+            </figure>
+        </div>
+    </div>
+    <footer>
+        <p class="footer-text">Made with &#127861; by <a href="https://github.com/lemonjuiceexe" target="_blank">lemonjuice</a></p>
+    </footer>
+</body>
+</html>
