@@ -169,9 +169,6 @@ footer a:visited{
     flex-flow: column nowrap;
     justify-content: center;
   }
-  .artwork-author, .artwork-date{
-    position: absolute;
-  }
   [class^="panel-"], body{
     height: unset; width: unset;
   }
