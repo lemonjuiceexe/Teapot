@@ -1,5 +1,6 @@
 @import url('reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap');
+@import url('menu.css');
 
 :root {
   --light: #FFF8EA;
@@ -12,10 +13,16 @@
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
 }
-a, a:link, a:active, a:visited{
+
+a:not(.menu a),
+a:not(.menu a):link,
+a:not(.menu a):active,
+a:not(.menu a):visited {
   color: var(--secondary);
 }
-::selection, ::-moz-selection {
+
+::selection,
+::-moz-selection {
   background: var(--primary);
   color: var(--light);
 }
@@ -32,9 +39,11 @@ body {
   background-color: var(--light);
   color: #000;
 }
-.wrapper{
+
+.wrapper {
   height: 90%;
-  width: 95%;
+  width: 100%;
+  padding: 0 5%;
   min-height: calc(100vh - 50px);
   position: relative;
   display: flex;
@@ -42,7 +51,8 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
-[class^="panel-"]{
+
+[class^="panel-"] {
   width: 40%;
   height: 100%;
   margin: 0 5%;
@@ -50,29 +60,35 @@ body {
   align-items: center;
 }
 
-.panel-left{
+
+.panel-left {
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 0;
 }
-.title{
+
+.title {
   font-size: 4.5rem;
   font-weight: 300;
   margin-bottom: 2rem;
 }
-.responsive-break{
+
+.responsive-break {
   display: none;
 }
-.site-description{
+
+.site-description {
   text-indent: 5%;
   margin: 0 0px;
   font-size: 1.5rem;
   line-height: 2rem;
 }
-.clock-wrapper{
+
+.clock-wrapper {
   width: 100%;
 }
-.clock{
+
+.clock {
   width: 100%;
   font-size: calc(2rem + 5vw + 2vh);
   font-weight: 100;
@@ -81,15 +97,17 @@ body {
   user-select: none;
 }
 
-.panel-right{
+.panel-right {
   flex-flow: column nowrap;
   justify-content: space-evenly;
   margin-right: 0;
 }
-.panel-right *{
+
+.panel-right * {
   font-weight: 400;
 }
-.right-wrapper{
+
+.right-wrapper {
   position: relative;
   border: 1px solid black;
   border-radius: 12px;
@@ -97,7 +115,8 @@ body {
   height: fit-content;
   max-height: 90%;
 }
-.artwork-reload{
+
+.artwork-reload {
   position: absolute;
   top: 0;
   right: 0;
@@ -109,29 +128,35 @@ body {
   aspect-ratio: 1;
   cursor: pointer;
 }
-.reload-disabled{
+
+.reload-disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.artwork-img{
+
+.artwork-img {
   max-height: 75%;
 }
-.artwork-title{
+
+.artwork-title {
   margin: 10px 0;
   font-size: 1.5em;
   font-weight: 500;
 }
-.artwork-author{
+
+.artwork-author {
   font-size: 1.2em;
 }
-.artwork-date{
+
+.artwork-date {
   margin: 10px 0;
 }
-.credits{
+
+.credits {
   margin-top: 20px;
 }
 
-footer{
+footer {
   width: 100vw;
   background-color: var(--dark);
   height: 50px;
@@ -141,26 +166,29 @@ footer{
   justify-content: center;
   align-items: center;
 }
-footer a, 
+
+footer a,
 footer a:link,
 footer a:active,
-footer a:visited{
+footer a:visited {
   color: var(--light);
   text-decoration: underline;
 }
 
 @media screen and (max-width: 1300px) {
-  body{
+  body {
     overflow-y: scroll;
   }
-  .wrapper{
+
+  .wrapper {
     flex-flow: column nowrap;
     align-items: center;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: unset; 
+    height: unset;
   }
-  .right-wrapper{
+
+  .right-wrapper {
     max-height: unset;
     margin: 20px;
     padding: 10px;
@@ -169,30 +197,40 @@ footer a:visited{
     flex-flow: column nowrap;
     justify-content: center;
   }
-  [class^="panel-"], body{
-    height: unset; width: unset;
+
+  [class^="panel-"],
+  body {
+    height: unset;
+    width: unset;
   }
-  .panel-left, .panel-right{
+
+  .panel-left,
+  .panel-right {
     margin: 0;
   }
-  .title{
+
+  .title {
     text-align: center;
     margin: 20px 0;
   }
-  .responsive-break{
+
+  .responsive-break {
     display: inline;
   }
-  .site-description{
+
+  .site-description {
     margin: 0 20px;
   }
-  .clock-wrapper{
+
+  .clock-wrapper {
     margin: 10% 0;
     padding-top: 20px;
     padding-bottom: 30px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
   }
-  .clock{
+
+  .clock {
     text-align: center;
     max-width: calc(100% - 10px);
     display: block;
@@ -202,10 +240,11 @@ footer a:visited{
     text-align: center;
   }
 
-  .artwork-img{
+  .artwork-img {
     max-width: 90vw;
   }
-  .artwork-reload{
+
+  .artwork-reload {
     top: -15%;
   }
 }

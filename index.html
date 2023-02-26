@@ -7,10 +7,21 @@
     <title>Teapot</title>
     <link rel="icon" href="img/teapot.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/artwork.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
+        <nav class="menu">
+            <div class="hamburger" onclick="toggleMenu()">
+                |||
+            </div>
+            <ul class="menu-content wrapped">
+                <li class="menu-button"><a href="#">Home</a></li>
+                <li class="menu-button"><a href="#">About</a></li>
+                <li class="menu-button"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
         <div class="panel-left">
             <div class="info-wrapper">
                 <h1 class="title">&#x1FAD6;<span class="responsive-break"><br></span>Teapot studio</h1>

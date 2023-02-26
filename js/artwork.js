@@ -31,7 +31,7 @@ function reloadArtwork(){
         return; 
     }
 
-    //First visit to the page (not a reload)
+    // First visit to the page (not a reload)
     if(sessionStorage.getItem("notTheFirstTime" == null)){
         sessionStorage.setItem("notTheFirstTime", "t");
         
@@ -60,13 +60,13 @@ async function fetchData(){
         artworkReload.classList.add("reload-disabled");
     }
     
-    //Check the total amount of artworks in the api
+    // Check the total amount of artworks in the api
     let artworksAmount = 100;
     await get("https://api.artic.edu/api/v1/artworks?query[term][is_public_domain]=true&limit=1").then(data => {
         artworksAmount = data.pagination.total_pages;
         console.log(artworksAmount);
     });
-    //Get a random artwork
+    // Get a random artwork
     let randomArtwork = Math.floor(Math.random() * artworksAmount + 1);
     await get(`https://api.artic.edu/api/v1/artworks?query[term][is_public_domain]=true&limit=1&page=${randomArtwork}&fields=id,title,artist_title,image_id,date_display,place_of_origin`).then(data => 
     {
@@ -75,7 +75,7 @@ async function fetchData(){
         console.log(data.data[0].artwork_type_id, data.data[0].artwork_type_title);
         console.log(data.data[0]);
 
-        //Edit the styles that appear only when the artwork's loaded
+        // Edit the styles that appear only when the artwork's loaded
         rightWrapper.style.border = "none";
         if(window.innerWidth <= 1300){
             artworkAuthor.style.position = "relative";
@@ -89,10 +89,10 @@ async function fetchData(){
         artworkDate.innerText = data.data[0].date_display;
         artworkOrigin.innerText = data.data[0].place_of_origin;
 
-        //Get the artwork image
+        // Get the artwork image
         console.log((data.config.iiif_url + "/" + data.data[0].image_id + "/full/400,/0/default.jpg"));
         
-        //If artwork image is not available, reload the whole thing
+        // If artwork image is not available, reload the whole thing
         let req = new XMLHttpRequest();
         req.open("GET", (data.config.iiif_url + "/" + data.data[0].image_id + "/full/400,/0/default.jpg"), false);
         req.send();
@@ -112,10 +112,3 @@ async function fetchData(){
         sessionStorage.setItem("alreadyFetching", false);
     });
 }
-
-//Clock
-setInterval(() => {
-    const date = new Date();
-    const time = `${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}:${date.getSeconds().toString().padStart(2, "0")}`;
-    document.querySelector(".clock").innerHTML = time;
-}, 250);
