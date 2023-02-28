@@ -21,9 +21,7 @@ function toggleMenu(){
     // Unwrap/wrap the menu after animationTimeout
     setTimeout(() => menu.classList.toggle("wrapped"), animationTimeout);
     // Hide buttons if unwrapping the menu, so they don't appear immediately
-    if(menuUnwrapped){
-        buttons.forEach(el => el.style["visibility"] = "hidden");
-    }
+    if(menuUnwrapped) buttons.forEach(el => el.style["visibility"] = "hidden");
     // Play animation after animationTimeout
     setTimeout(() => {
         buttons.forEach(el => el.animate([
@@ -51,6 +49,8 @@ setInterval(() => {
     // Don't update the clock if it's not visible anyway
     if(menuUnwrapped) return;
     const date = new Date();
-    const time = `${date.getHours().toString().padStart(2, "0")}:${date.getMinutes().toString().padStart(2, "0")}:${date.getSeconds().toString().padStart(2, "0")}`;
-    document.querySelector(".clock").innerHTML = time;
+    const HH = date.getHours().toString().padStart(2, "0");
+    const MM = date.getMinutes().toString().padStart(2, "0");
+    const SS = date.getSeconds().toString().padStart(2, "0");
+    document.querySelector(".clock").innerHTML = `${HH}:${MM}:${SS}`;
 }, 250);

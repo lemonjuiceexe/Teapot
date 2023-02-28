@@ -38,7 +38,6 @@ function reloadArtwork(){
         fetchData();
     }
     lastReload = (sessionStorage.getItem("lastReload"));
-    console.log("DIFFERENCE: ", new Date(), lastReload, (new Date() - lastReload));
     if(new Date() - lastReload > minReloadInterval){
         fetchData();
     }
@@ -54,8 +53,7 @@ function reloadArtwork(){
 async function fetchData(){
     if(sessionStorage.getItem("alreadyFetching") != null && sessionStorage.getItem("alreadyFetching") == "true") { return; }
     sessionStorage.setItem("alreadyFetching", true);
-    console.log("FETCH", new Date() - sessionStorage.getItem("lastReload"));
-    console.log("FETCH");
+    console.log("Fetching, time from the last fetch: ", new Date() - sessionStorage.getItem("lastReload"));
     if(!artworkReload.classList.contains("reload-disabled")){
         artworkReload.classList.add("reload-disabled");
     }
@@ -64,15 +62,12 @@ async function fetchData(){
     let artworksAmount = 100;
     await get("https://api.artic.edu/api/v1/artworks?query[term][is_public_domain]=true&limit=1").then(data => {
         artworksAmount = data.pagination.total_pages;
-        console.log(artworksAmount);
+        console.log("Artworks amount: ", artworksAmount);
     });
     // Get a random artwork
     let randomArtwork = Math.floor(Math.random() * artworksAmount + 1);
     await get(`https://api.artic.edu/api/v1/artworks?query[term][is_public_domain]=true&limit=1&page=${randomArtwork}&fields=id,title,artist_title,image_id,date_display,place_of_origin`).then(data => 
     {
-        console.log(randomArtwork);
-        console.log("ID: " + data.data[0].id);
-        console.log(data.data[0].artwork_type_id, data.data[0].artwork_type_title);
         console.log(data.data[0]);
 
         // Edit the styles that appear only when the artwork's loaded
