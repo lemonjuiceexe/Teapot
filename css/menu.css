@@ -39,17 +39,17 @@
 }
 
 .menu-content.wrapped .menu-button {
-    animation: hide 300ms;
+    display: none;
 }
 
 .menu-button {
+    width: 20%;
+    padding: 12px 40px;
+    margin: 20px 0;
+    text-align: center;
     background: rgb(232, 100, 100);
     background: linear-gradient(135deg, rgba(232, 100, 100, 1) 0%, rgba(233, 74, 68, 1) 100%);
     border-bottom: 5px solid #b63535;
-    width: 20%;
-    text-align: center;
-    padding: 12px 40px;
-    margin: 20px 0;
     border-radius: 7px;
     cursor: pointer;
 }
@@ -61,19 +61,6 @@
 
 .menu-button:hover {
     animation: boing 300ms ease-out;
-}
-
-@keyframes hide {
-    0%{
-        filter: opacity(1);
-    }
-    70%{
-        filter: opacity(0);
-    }
-    100%{
-        filter: opacity(0);
-        display: none;
-    }
 }
 
 @keyframes boing {
