@@ -43,6 +43,7 @@
 }
 
 .menu-button {
+    position: relative;
     width: 20%;
     padding: 12px 40px;
     margin: 20px 0;

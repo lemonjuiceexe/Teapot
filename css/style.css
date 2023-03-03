@@ -121,12 +121,14 @@ body {
   top: 0;
   right: 0;
   padding: 1rem;
+  padding-top: 0.5rem;
   font-size: 3rem;
   display: inline-flex;
   align-items: center;
   height: fit-content;
   aspect-ratio: 1;
   cursor: pointer;
+  transform-origin: center;
 }
 
 .reload-disabled {

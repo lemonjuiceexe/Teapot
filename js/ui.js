@@ -1,9 +1,10 @@
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu-content");
 const buttons = document.querySelectorAll(".menu-button");
+const artReload = document.querySelector(".artwork-reload");
+
 // Hamburger menu
 let menuUnwrapped = false;
-
 function toggleMenu(){
     menuUnwrapped = !menuUnwrapped;
     console.log(menuUnwrapped);
@@ -26,10 +27,12 @@ function toggleMenu(){
     setTimeout(() => {
         buttons.forEach(el => el.animate([
                 {
-                    filter: "opacity(0)"
+                    filter: "opacity(0)",
+                    top: "30px"
                 },
                 {
-                    filter: "opacity(1)"
+                    filter: "opacity(1)",
+                    top: "0"
                 }
             ], {
                 iterations: 1,

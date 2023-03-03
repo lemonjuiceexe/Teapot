@@ -21,6 +21,10 @@ async function get(url){
 }
 
 function reloadArtwork(){
+    // Animation for the reload button, unfortunately has to be executed here
+    animateReloadButton();
+
+    // Actual fetching stuff
     reloadInfo.forEach((el) => {el.innerText = (minReloadInterval / 1000).toFixed(1); });
     if(sessionStorage.getItem("alreadyFetching") != null && sessionStorage.getItem("alreadyFetching") == "true") { 
         artworkReload.classList.add("reload-disabled");
@@ -49,7 +53,6 @@ function reloadArtwork(){
     }
 }
 
-//TODO: maybe exclude some categories. 38? arms
 async function fetchData(){
     if(sessionStorage.getItem("alreadyFetching") != null && sessionStorage.getItem("alreadyFetching") == "true") { return; }
     sessionStorage.setItem("alreadyFetching", true);
@@ -105,5 +108,16 @@ async function fetchData(){
         }, minReloadInterval);
 
         sessionStorage.setItem("alreadyFetching", false);
+    });
+}
+
+function animateReloadButton(){
+    artworkReload.animate([
+        {
+            transform: "rotate(360deg)"
+        }
+    ], {
+        duration: 500,
+        easing: "ease"
     });
 }
