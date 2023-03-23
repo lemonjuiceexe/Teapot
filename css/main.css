@@ -1,44 +1,6 @@
 @import url('reset.css');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap');
+@import url('theme.css');
 @import url('menu.css');
-
-:root {
-  --light: #FFF8EA;
-  --dark: #594545;
-  --primary: #815B5B;
-  --secondary: #9E7676;
-}
-
-* {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 200;
-}
-
-a:not(.menu a),
-a:not(.menu a):link,
-a:not(.menu a):active,
-a:not(.menu a):visited {
-  color: var(--secondary);
-}
-
-::selection,
-::-moz-selection {
-  background: var(--primary);
-  color: var(--light);
-}
-
-body {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: center;
-
-  background-color: var(--light);
-  color: #000;
-}
 
 .wrapper {
   height: 90%;
